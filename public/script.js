@@ -31,3 +31,7 @@ document.getElementById('registration-form').addEventListener('submit', function
     alert('Thank you for registering! We will contact you soon.');
 });
 
+app.get('/Register', (req, res) => {
+    res.send('You have registered for our services');
+  });
+  
