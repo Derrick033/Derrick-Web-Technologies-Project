@@ -9,7 +9,7 @@ const db = mysql.createConnection({
     host: 'localhost',
     user: 'root', 
     password: 'Spice@033Dkw', 
-    database: 'zenquest'
+    database: 'nirvana'
 });
 
 db.connect((err) => {
@@ -23,10 +23,9 @@ app.use(bodyParser.json());
 
 app.use(express.static('public'));
 
-
 app.post('/register', (req, res) => {
     const { first_name, surname, age, email, subscription_plan } = req.body;
-    const query = `INSERT INTO subscribers (first_name, surname, age, email, subscription_plan) VALUES (?, ?, ?, ?, ?)`;
+    const query = `INSERT INTO subscriptions (first_name, surname, age, email, subscription_plan) VALUES (?, ?, ?, ?, ?)`;
 
     db.query(query, [first_name, surname, age, email, subscription_plan], (err, result) => {
         if (err) throw err;
